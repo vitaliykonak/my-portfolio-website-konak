@@ -20,6 +20,8 @@
     --input-color: hsl(var(--hue-color), 70%, 96% );
     --body-color: hsl(var(--hue-color), 60%, 99%) ;
     --container-color: #fff;
+    --scroll-bar-color: hsl(var(--hue-color), 12%, 90%) ;
+    --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%) ;
 
     /*========== Font and typography ==========*/
     --body-font: 'Poppins', sans-serif;;
@@ -679,6 +681,7 @@ bottom: -2.5rem;
 .project__bg{
     background-color: var(--first-color-second);
     padding-top: 3rem;
+
 }
 .project__title{
     font-size: var(--h2-font-size);
@@ -810,13 +813,83 @@ bottom: -2.5rem;
 }
 
 /*========== SCROLL BAR ==========*/
-
-
+::-webkit-scrollbar{
+    width: .60rem;
+    background-color: var(--scroll-bar-color);
+    border-radius: .5rem;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--scroll-thumb-color);
+    border-radius: .5rem;
+}
 /*==================== MEDIA QUERIES ====================*/
 /* For small devices */
-
+@media screen and (max-width: 350px){
+.container{
+    margin-left: var(--mb-1);
+    margin-right: var(--mb-1);
+}
+    .nav__menu{
+        padding: 2rem .25rem 4rem ;
+    }
+    .nav__list{
+        column-gap: 0;
+    }
+    .home__content{
+        grid-template-columns: .25fr 3fr;
+    }
+    .home__blob{
+        width: 180px;
+    }
+    .skills__title{
+        font-size: var(--normal-font-size);
+    }
+    .qualification__data{
+        gap: .10rem;
+    }
+    .services__container{
+         grid-template-columns: max-content;
+        justify-content: center;
+    }
+    .services__content{
+        padding-right: 3.5rem;
+    }
+    .services__modal{
+        padding: 0 .5rem;
+    }
+    .project__img{
+        width: 200px;
+    }
+}
 
 /* For medium devices */
-
+@media screen and (min-width: 568px){
+    .home__content{
+         grid-template-columns:  max-content 1fr 1fr;
+    }
+    .home__data{
+        grid-column: initial;
+    }
+    .home__img{
+        order: 1;
+        justify-self: center;
+    }
+    .about__container,
+    .skills__container,
+    .portfolio__content,
+    .project__container,
+    .contact__container,
+    .footer__container{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .qualification__section{
+        display: grid;
+        grid-template-columns: .6fr;
+        justify-content: center;
+    }
+    .project__data{
+        margin-top: 100px  ;
+    }
+}
 
 /* For large devices */
